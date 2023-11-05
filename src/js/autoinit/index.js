@@ -268,10 +268,11 @@ const defaultOptions = {
 
 const initTE = (components, options = {}) => {
   options = { ...defaultOptions, ...options };
+  custom-document = options.document || document;
 
   const componentList = Object.keys(defaultInitSelectors).map((element) => {
     const requireAutoinit = Boolean(
-      document.querySelector(defaultInitSelectors[element].selector)
+      custom-document.querySelector(defaultInitSelectors[element].selector)
     );
     if (requireAutoinit) {
       const component = components[defaultInitSelectors[element].name];
